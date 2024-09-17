@@ -1,7 +1,7 @@
 import { getAllProducts } from "../../lib/data";
-import React from "react";
 
 const TableItems = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   const products = await getAllProducts();
   const productProperties = Object.getOwnPropertyNames(products[0]);
 
