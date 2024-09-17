@@ -9,8 +9,6 @@ async function find() {
     return await Product.find({}, { _id: 0, id: 0, __v: 0, tags: 0 }).lean();
   } catch (error) {
     throw new Error("Error al obtener los productos: " + error);
-  } finally {
-    await mongoose.connection.close();
   }
 }
 
@@ -20,8 +18,6 @@ async function findById(productId) {
     return await Product.findById(productId, { _id: 0, id: 0, __v: 0 }).lean();
   } catch (error) {
     throw new Error("Error al obtener el producto");
-  } finally {
-    await mongoose.connection.close();
   }
 }
 
